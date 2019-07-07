@@ -8,8 +8,8 @@ app.get('/', async (req, res) => {
   // grab the text parameter.
   // push the new message into the realtime database using the firebase admin sdk.
   admin.database().ref('/messages').on('value', (snapshot: any) => {
-    res.send({test:'test'})
-    // res.redirect(200, snapshot.val().json());
+    // res.send({test:'test'})
+    res.send(JSON.stringify(snapshot.val()));
   });
 });
 
